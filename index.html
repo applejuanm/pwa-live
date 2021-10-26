@@ -9,6 +9,14 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
   <script src="/node_modules/axios/dist/axios.min.js"></script>
   <script>
+    // Load and register pre-caching Service Worker
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/service-worker.js', {
+                scope: '/',
+            });
+        });
+    }
     // HACK(keanulee): The Redux package assumes `process` exists - mock it here before
     // the module is loaded.
     window.process = {

@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "web-dev-server --app-index index.html",
-    "build": "rimraf dist && rollup -c rollup.config.js",
+    "build": "rimraf dist && rollup -c rollup.config.js && workbox generateSW workbox-config.js",
     "start:build": "npm run build && es-dev-server --root-dir dist --app-index index.html --compatibility none --open"
   },
   "dependencies": {
@@ -36,6 +36,7 @@
     "rollup": "^2.58.0",
     "rollup-plugin-cpy": "^2.0.1",
     "webpack": "^5.58.2",
-    "webpack-cli": "^4.9.0"
+    "webpack-cli": "^4.9.0",
+    "workbox-cli": "^6.3.0"
   }
 }
